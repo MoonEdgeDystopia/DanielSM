@@ -1,13 +1,12 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-US'
-title = "Daniel's Blog"
+title = "Daniel's Cybersecurity Blog"
 readingSpeed = 212
 disablePathToLower = true
 theme = "sugo"
 
 [taxonomies]
 tag = "tags"
-category = "categories"
 author = "authors"
 
 [menus]
@@ -27,14 +26,9 @@ pageRef = '/tags'
 weight = 30
 
 [[menus.main]]
-name = 'Categories'
-pageRef = '/categories'
-weight = 40
-
-[[menus.main]]
 name = 'About'
 pageRef = '/pages/about'
-weight = 50
+weight = 40
 
 [permalinks]
 posts = "/:year/:month/:slug/"
@@ -50,10 +44,6 @@ toLower = true
 [[related.indices]]
 name = "tags"
 weight = 100
-
-[[related.indices]]
-name = "categories"
-weight = 70
 
 [[related.indices]]
 name = "date"
@@ -78,7 +68,7 @@ fixedThemeWhenToggleOff = "light"
 titleSeparator = " | "
 skipLinkText = "Skip to main content"
 primaryNavAriaLabel = "Primary"
-brandKicker = "Personal Blog"
+brandKicker = "Cybersecurity & Technology"
 navToggleText = "Menu"
 navToggleAriaLabel = "Toggle navigation"
 themeStorageKey = "mytheme-color-scheme"
@@ -93,7 +83,7 @@ searchDialogTitle = "Search"
 searchCloseLabel = "Close search"
 searchPlaceholder = "Search posts"
 searchNoResultsText = "No results found"
-searchEmptyPrompt = "Search by title, subtitle, tags, categories, authors, or body text."
+searchEmptyPrompt = "Search by title, subtitle, tags, authors, or body text."
 searchLoadFailedText = "Search index is not available. Build with Pagefind first."
 searchLoadingText = "Loading search..."
 searchResultLabel = "result"
@@ -144,7 +134,7 @@ articleShareAriaLabel = "Share this article"
 articleCommentsHeading = "Comments"
 articleCommentsAriaLabel = "Comments"
 articleCommentsEnableJsLabel = "Please enable JavaScript to view the comments."
-footerTagline = "Thoughts, stories, and ideas."
+footerTagline = "Insights on cybersecurity, cloud, and digital forensics."
 footerCopyright = "Copyright {year}. All rights reserved."
 shortcodeCollapseTitle = "Click to expand"
 shortcodeCardsDefaultTitle = "Card"
@@ -159,7 +149,6 @@ shortcodeCodeCopiedLabel = "Copied"
 shortcodeCodeFailedLabel = "Failed"
 
 [params.ui.taxonomyLabels]
-categories = "Categories"
 tags = "Tags"
 authors = "Authors"
 

@@ -1,41 +1,52 @@
 +++
-title = "Wanderlust in Kyoto"
-subtitle = "Autumn colors and ancient temples"
+title = "Securing the Cloud: A Practitioner's Guide"
+subtitle = "Identity, visibility, and zero trust in distributed environments"
 authors = ['Daniel']
 date = 2026-03-22
 publishedDate = 2026-03-22
 draft = false
 featured = false
-cover = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Kinkaku-ji_2021.jpg/1200px-Kinkaku-ji_2021.jpg'
-tags = ['Travel', 'Japan', 'Photography']
-categories = ['Travel', 'Personal']
+cover = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Data_center_interior.jpg/1200px-Data_center_interior.jpg'
+tags = ['cloud computing', 'cybersecurity', 'networks']
 toc = false
 +++
 
-There are places that leave an imprint on your soul, and Kyoto is one of them. Walking through its narrow streets in autumn, when the maples burn red and gold against the grey stone of ancient temples, feels like stepping into a living painting.
+Cloud computing has fundamentally reshaped how organizations build and operate infrastructure. It has also reshaped the threat landscape. The perimeter is no longer a castle wall; it is a constellation of APIs, identities, and ephemeral services. Securing the cloud requires a different mental model from traditional datacenter defense.
 
-## Arrival in the Old Capital
+## Identity is the New Perimeter
 
-I arrived in Kyoto on a crisp November morning, when the air smelled of roasted chestnuts and wood smoke. Unlike the neon intensity of Tokyo, Kyoto moves at a different pace. Here, time seems to fold in on itself — modern life coexisting with traditions that stretch back over a thousand years.
+In a cloud environment, the most critical control plane is identity. If an attacker compromises a privileged service principal or obtains a long-lived access key, network segmentation offers little protection. Every major cloud breach in recent years has involved some form of identity abuse — whether through stolen credentials, misconfigured IAM policies, or privilege escalation via metadata services.
 
-My first stop was the Fushimi Inari Shrine, famous for its thousands of vermillion torii gates winding up the mountainside. I went early, just after sunrise, and for a brief hour, I had the trails almost to myself. The light filtering through the gates created patterns of orange and shadow that shifted with every step. It was meditative, almost sacred.
+The response to this reality is simple in theory and difficult in practice: enforce least privilege rigorously, eliminate long-lived credentials, and monitor identity behavior continuously. Multi-factor authentication is non-negotiable for human accounts. For service accounts, managed identities and short-lived tokens are vastly preferable to static keys stored in configuration files.
 
-## The Golden Pavilion
+## Visibility Through Logging
 
-Kinkaku-ji, the Golden Pavilion, is undoubtedly one of Kyoto's most iconic sights. The top two floors of the temple are covered in pure gold leaf, and when the afternoon sun strikes it just right, the reflection in the surrounding pond is almost blinding.
+You cannot secure what you cannot see. Cloud platforms generate enormous volumes of telemetry, but that telemetry is only useful if it is collected, correlated, and analyzed. CloudTrail, Azure Activity Logs, and Google Cloud Audit Logs provide the foundational record of control-plane actions. These must be centralized, protected from tampering, and monitored for anomalies.
 
-But what struck me more than the gold was the garden. Every rock, every tree, every patch of moss seemed placed with intention. Japanese garden design is based on the concept of *shakkei* — borrowed scenery — where the landscape beyond the garden becomes part of the composition itself. Standing there, I felt myself becoming part of the view, too.
+Beyond control-plane logs, workload-level visibility is equally important. Container runtime security, network flow logs, and application-layer telemetry all contribute to a complete picture. The goal is to reduce the mean time to detect (MTTD) by making attacker behavior observable at every stage of the kill chain.
 
-## Tea and Conversation
+## Zero Trust Architecture
 
-One afternoon, I found myself in a small teahouse in the Gion district. An elderly woman in a kimono served me matcha and a delicate sweet made from red bean paste. We did not share a language, but we smiled, gestured, and sat together in comfortable silence.
+Zero trust is not a product you can buy; it is a design philosophy. The core principle is to "never trust, always verify." In practice, this means:
 
-Travel, I think, is not about checking items off a list. It is about these small, unexpected moments of connection — a shared cup of tea, a bow of acknowledgment, the universal language of kindness.
+- **Authenticate and authorize every access request**, regardless of origin.
+- **Assume breach.** Design systems so that a compromise in one segment cannot easily spread.
+- **Minimize the blast radius.** Use micro-segmentation, just-in-time access, and strong encryption.
 
-## Leaving a Piece Behind
+Implementing zero trust in a legacy environment is challenging. It requires deep understanding of data flows, careful policy engineering, and often, significant cultural change. But in cloud-native environments, many of the necessary building blocks are already available. The task is to configure and integrate them properly.
 
-On my last evening, I walked along the Kamo River as the sky turned violet. A group of young musicians were playing jazz on the riverbank. An old man fed crumbs to the pigeons. Everything felt perfectly ordinary and perfectly beautiful at the same time.
+## Common Cloud Misconfigurations
 
-Kyoto taught me that wonder does not always announce itself with grandeur. Sometimes it arrives quietly — in the rustle of autumn leaves, in the steam rising from a bowl of ramen, in the stillness of a temple garden at dusk.
+Despite growing awareness, misconfiguration remains the leading cause of cloud data breaches. Some of the most dangerous mistakes include:
 
-I left a piece of my heart there. And I know I will return to find it.
+- **Publicly exposed storage buckets** containing sensitive data.
+- **Overly permissive security groups** allowing unrestricted inbound access.
+- **Unpatched virtual machines** left exposed to the internet.
+- **Missing encryption** for data at rest or in transit.
+- **Excessive IAM permissions** granted to applications and users.
+
+Automated configuration scanning tools like Prowler, ScoutSuite, and cloud-native security posture management (CSPM) solutions can catch many of these issues. However, automation is not a substitute for architectural review. The most subtle risks — a trust boundary drawn in the wrong place, a sensitive function exposed through an API gateway — require human judgment.
+
+## Conclusion
+
+Cloud security is a vast and rapidly evolving field. The technologies change constantly, but the fundamentals remain the same: understand your assets, control access tightly, maintain visibility, and design for resilience. The cloud is not inherently less secure than on-premises infrastructure, but it demands a different set of skills and a more distributed approach to defense.

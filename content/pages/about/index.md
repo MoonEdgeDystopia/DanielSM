@@ -12,12 +12,14 @@ toc = false
 
 ## What is this website?
 
-This is my personal blog, built with the **Sugo** theme for Hugo. Here, I write about the things that fascinate me: from long-form essays on literature and philosophy to shorter reflections on daily life, travel, and creativity.
+This is a professional cybersecurity and technology blog built with Hugo and the Sugo theme. Here, I publish in-depth articles, technical guides, and reflective essays on topics spanning network security, cloud architecture, penetration testing, incident response, digital forensics, and embedded systems.
 
-The name of the site reflects my belief that writing is a way of making sense of the world — one story, one idea, one observation at a time. Whether you're here to read a deep dive into a classic poem or a casual post about wandering through a new city, I hope you find something that resonates.
+My goal is to bridge the gap between theory and practice. Too much security content is either overly abstract or narrowly focused on tools. I aim to explore the *why* behind the techniques — the strategic thinking, the threat models, and the operational realities that shape modern defense.
 
 ## About Me
 
-I'm Daniel — a curious mind with a love for words, code, and exploration. When I'm not writing, you can probably find me reading something old, planning my next trip, or tinkering with side projects.
+I am a cybersecurity professional with a passion for understanding how systems break — and how to protect them. My background spans blue-team operations, cloud security engineering, and forensic analysis. I believe that good security is built on curiosity, discipline, and a relentless attention to detail.
 
-Feel free to reach out if you'd like to connect, collaborate, or just say hello!
+When I am not investigating logs or hardening infrastructure, you will find me researching new attack vectors, experimenting in homelabs, or writing about what I have learned.
+
+Feel free to connect if you want to discuss security, collaborate on a project, or just exchange ideas.

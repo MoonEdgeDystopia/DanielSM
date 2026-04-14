@@ -1,45 +1,57 @@
 +++
-title = "Cosmic Perspectives"
-subtitle = "What astronomy teaches us about being small"
+title = "Digital Forensics: Reconstructing the Incident"
+subtitle = "From disk images to courtroom testimony"
 authors = ['Daniel']
 date = 2026-01-05
 publishedDate = 2026-01-05
 draft = false
 featured = false
-cover = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Hubble_ultra_deep_field.jpg/1200px-Hubble_ultra_deep_field.jpg'
-tags = ['Astronomy', 'Science', 'Philosophy']
-categories = ['Science', 'Essays']
+cover = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Hard_disk_drives.jpg/1200px-Hard_disk_drives.jpg'
+tags = ['digital forensics', 'cybersecurity', 'networks', 'embedded systems']
 toc = false
 +++
 
-The Hubble Ultra Deep Field is one of the most humbling images ever captured by humanity. A tiny patch of sky, no larger than a grain of sand held at arm's length, containing thousands of galaxies. Each galaxy holds hundreds of billions of stars. Around many of those stars, planets orbit in silent darkness. And somewhere, perhaps, life looks up and wonders, just as we do.
+Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked with a difficult mission: reconstructing what happened, preserving evidence in a legally admissible form, and communicating findings to stakeholders who may have no technical background. It is meticulous work, but it is essential for accountability and improvement.
 
-## The Scale of the Universe
+## The Four Phases of Digital Forensics
 
-It is difficult — perhaps impossible — to truly comprehend the scale of the cosmos. We can recite the numbers: the observable universe is about 93 billion light-years across. A light-year is roughly 9.5 trillion kilometers. Our galaxy, the Milky Way, contains between 100 and 400 billion stars. And there are an estimated two trillion galaxies in the observable universe alone.
+While models vary, most forensic investigations follow a similar lifecycle:
 
-But numbers this large quickly become abstract. They cease to mean anything to our everyday experience. What does it matter that a star exploded 10 billion years ago, when I have a meeting in an hour and dinner to plan?
+1. **Identification:** Recognizing that an incident has occurred and determining what evidence is available.
+2. **Collection:** Acquiring data in a forensically sound manner, ensuring integrity and chain of custody.
+3. **Analysis:** Examining the evidence to reconstruct events, identify affected systems, and determine root cause.
+4. **Reporting:** Documenting findings clearly and accurately for legal, regulatory, or internal audiences.
 
-And yet, there is something profoundly valuable in confronting our smallness.
+Each phase has its own challenges. Identification requires situational awareness. Collection demands technical precision. Analysis needs deductive reasoning. Reporting calls for clear communication.
 
-## The Overview Effect
+## Disk Imaging and Integrity
 
-Astronauts who have seen Earth from space often describe something called the *overview effect* — a cognitive shift in awareness reported during spaceflight. National boundaries vanish. Conflicts seem petty. The fragility of our planet becomes viscerally real.
+The golden rule of forensics is to never work on original evidence. Instead, analysts create bit-for-bit forensic images of storage media and perform all analysis on copies. Tools like FTK Imager, dd, and Guymager are commonly used for this purpose.
 
-You do not need to leave the atmosphere to experience a version of this. Simply looking up at a clear night sky, away from city lights, can trigger a similar sense of perspective. The problems that consume us during the day — deadlines, arguments, anxieties — shrink in the presence of infinity.
+To prove that evidence has not been altered, forensic images are hashed using algorithms like SHA-256. The hash value is recorded at the time of collection and verified throughout the investigation. Any mismatch indicates tampering or corruption.
 
-This is not an invitation to apathy. Our struggles matter because we matter, to ourselves and to each other. But astronomy reminds us that we are part of something incomprehensibly larger. It softens the ego. It widens the heart.
+Chain of custody documentation is equally important. Every person who handles evidence, every transfer between locations, and every action performed on the data must be recorded. Without proper chain of custody, even technically perfect evidence may be inadmissible in court.
 
-## We Are Made of Star Stuff
+## Timeline Analysis
 
-The atoms in your body were forged in the cores of dying stars. The carbon in your cells, the calcium in your bones, the iron in your blood — all of it was cooked in stellar furnaces billions of years ago and scattered across the galaxy when those stars exploded in supernovae.
+One of the most powerful techniques in forensic analysis is timeline reconstruction. By correlating timestamps from file systems, event logs, browser history, registry hives, and network captures, analysts can build a minute-by-minute picture of attacker activity.
 
-As Carl Sagan famously said, we are made of star stuff. Every person you have ever loved, every book you have ever read, every sunset you have ever watched — all of it is made from the debris of ancient suns. There is poetry in this. There is connection. We are not separate from the universe, observing it from the outside. We are the universe, observing itself.
+Timeline analysis often reveals the full scope of an incident. It shows when initial access occurred, how long the attacker remained undetected, which systems were compromised, and what data was accessed or exfiltrated. It also helps identify gaps in logging that need to be addressed before the next incident.
 
-## Looking Up
+## File Carving and Deleted Data
 
-I keep a small telescope on my balcony. On clear nights, I point it at Jupiter and watch its moons dance in orbit. I find the Orion Nebula and marvel at the clouds of gas where new stars are being born. I track the rings of Saturn, those delicate circles of ice and dust, and I am reminded that beauty and order exist on scales I will never touch.
+Attackers frequently delete files to cover their tracks. But deletion typically only removes the file system pointer, not the underlying data. Until the space is overwritten, the data remains recoverable. File carving tools like PhotoRec and Scalpel scan raw disk images for known file signatures and reconstruct deleted files without relying on file system metadata.
 
-Astronomy does not answer all our questions. In many ways, it deepens the mystery. But it gives us something just as important: perspective. It reminds us that we are brief, luminous, and deeply connected to the cosmos.
+Registry analysis on Windows and plist parsing on macOS can also uncover valuable artifacts: recently accessed files, connected USB devices, user account activity, and persistent malware mechanisms.
 
-So the next time life feels overwhelming, look up. The stars have been burning for billions of years. They will still be there when your troubles have passed. And in their light, you might remember that you belong to something magnificent.
+## Embedded Systems and IoT
+
+As the Internet of Things expands, forensic analysts increasingly encounter embedded systems: routers, cameras, industrial controllers, medical devices, and automotive systems. These devices pose unique challenges. They often use proprietary operating systems, lack standard logging, and store data in non-volatile memory that requires specialized hardware to access.
+
+JTAG and chip-off techniques allow direct extraction of flash memory from circuit boards. Firmware analysis tools like Binwalk and Ghidra help reverse-engineer embedded software. Network traffic capture is often the only source of evidence for devices that do not retain local logs.
+
+## The Human Element
+
+Forensics is not only about tools and techniques. It is also about judgment. Analysts must avoid confirmation bias — the temptation to interpret ambiguous evidence in a way that supports a preconceived theory. They must distinguish between correlation and causation. They must be honest about uncertainty.
+
+Ultimately, the goal of digital forensics is truth. Not the narrative that is most convenient, but the narrative that the evidence actually supports. In a profession where findings can lead to criminal prosecution, regulatory penalties, or termination of employment, intellectual honesty is not optional. It is the core ethical obligation.
