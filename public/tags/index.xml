@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Daniel&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:41623/tags/</link>
+    <link>http://localhost:39299/DanielSM/tags/</link>
     <description>Recent content in Tags on Daniel&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:41623/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:39299/DanielSM/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cybersecurity</title>
-      <link>http://localhost:41623/tags/cybersecurity/</link>
+      <link>http://localhost:39299/DanielSM/tags/cybersecurity/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/cybersecurity/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/cybersecurity/</guid>
       <description></description>
     </item>
     <item>
       <title>Incident Response</title>
-      <link>http://localhost:41623/tags/incident-response/</link>
+      <link>http://localhost:39299/DanielSM/tags/incident-response/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/incident-response/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/incident-response/</guid>
       <description></description>
     </item>
     <item>
       <title>Networks</title>
-      <link>http://localhost:41623/tags/networks/</link>
+      <link>http://localhost:39299/DanielSM/tags/networks/</link>
       <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/networks/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/networks/</guid>
       <description></description>
     </item>
     <item>
       <title>Penetration Testing</title>
-      <link>http://localhost:41623/tags/penetration-testing/</link>
+      <link>http://localhost:39299/DanielSM/tags/penetration-testing/</link>
       <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/penetration-testing/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/penetration-testing/</guid>
       <description></description>
     </item>
     <item>
       <title>Cloud Computing</title>
-      <link>http://localhost:41623/tags/cloud-computing/</link>
+      <link>http://localhost:39299/DanielSM/tags/cloud-computing/</link>
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/cloud-computing/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/cloud-computing/</guid>
       <description></description>
     </item>
     <item>
       <title>Digital Forensics</title>
-      <link>http://localhost:41623/tags/digital-forensics/</link>
+      <link>http://localhost:39299/DanielSM/tags/digital-forensics/</link>
       <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/digital-forensics/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/digital-forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Operating Systems</title>
-      <link>http://localhost:41623/tags/operating-systems/</link>
+      <link>http://localhost:39299/DanielSM/tags/operating-systems/</link>
       <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/operating-systems/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/operating-systems/</guid>
       <description></description>
     </item>
     <item>
       <title>Embedded Systems</title>
-      <link>http://localhost:41623/tags/embedded-systems/</link>
+      <link>http://localhost:39299/DanielSM/tags/embedded-systems/</link>
       <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41623/tags/embedded-systems/</guid>
+      <guid>http://localhost:39299/DanielSM/tags/embedded-systems/</guid>
       <description></description>
     </item>
   </channel>

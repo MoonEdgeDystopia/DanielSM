@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Archive on Daniel&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:41623/archives/</link>
+    <link>http://localhost:39299/DanielSM/archives/</link>
     <description>Recent content in Archive on Daniel&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <atom:link href="http://localhost:41623/archives/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:39299/DanielSM/archives/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

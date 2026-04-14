@@ -699,6 +699,16 @@ function initBackToTop() {
 
 let pagefindUiLoadPromise = null;
 
+function getPagefindBasePath() {
+  const cssLink = document.querySelector('link[rel="stylesheet"][href*="/css/main"]');
+  if (cssLink) {
+    const href = cssLink.getAttribute('href');
+    const match = href.match(/^(.+?)\/css\/main/);
+    if (match) return match[1] + '/pagefind';
+  }
+  return '/pagefind';
+}
+
 function loadExternalScript(src) {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -721,7 +731,7 @@ function ensurePagefindUiAssets() {
       const cssLink = document.createElement("link");
       cssLink.id = "pagefind-ui-css";
       cssLink.rel = "stylesheet";
-      cssLink.href = "/pagefind/pagefind-ui.css";
+      cssLink.href = getPagefindBasePath() + "/pagefind-ui.css";
       document.head.appendChild(cssLink);
     }
 
@@ -730,7 +740,7 @@ function ensurePagefindUiAssets() {
       return;
     }
 
-    loadExternalScript("/pagefind/pagefind-ui.js")
+    loadExternalScript(getPagefindBasePath() + "/pagefind-ui.js")
       .then(resolve)
       .catch(reject);
   });
@@ -796,6 +806,7 @@ function initSiteSearch() {
         showSubResults: true,
         resetStyles: false,
         excerptLength: 20,
+        bundlePath: getPagefindBasePath() + "/",
         translations: {
           placeholder,
           zero_results: noResultsLabel,
