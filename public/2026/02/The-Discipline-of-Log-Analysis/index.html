@@ -1,19 +1,364 @@
-<!doctype html><html lang=en-US dir=ltr class=no-js data-theme=light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>The Discipline of Log Analysis | Daniel's Cybersecurity Blog</title><link rel=canonical href=https://example.org/2026/02/The-Discipline-of-Log-Analysis/><meta name=description content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data..."><meta property="og:site_name" content="Daniel's Cybersecurity Blog"><meta property="og:title" content="The Discipline of Log Analysis"><meta property="og:description" content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data..."><meta property="og:type" content="article"><meta property="og:url" content="https://example.org/2026/02/The-Discipline-of-Log-Analysis/"><meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Computer_code_screen.jpg/1200px-Computer_code_screen.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="The Discipline of Log Analysis"><meta name=twitter:description content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data..."><meta name=twitter:image content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Computer_code_screen.jpg/1200px-Computer_code_screen.jpg"><meta property="article:published_time" content="2026-02-14T00:00:00Z"><meta property="article:modified_time" content="2026-02-14T00:00:00Z"><meta data-pagefind-meta=title content="The Discipline of Log Analysis"><meta data-pagefind-meta=subtitle content="Turning noise into signal during incident response"><meta data-pagefind-meta=type content="posts"><meta data-pagefind-meta=section content="posts"><meta data-pagefind-meta=tags content="digital forensics, incident response, operating systems"><meta data-pagefind-meta=authors content="Daniel"><script>(function(){try{var e,n,a,i='"mytheme-color-scheme"',t='"light"',s="true",o='"light"';window.__MYTHEME_STORAGE_KEY__=i,window.__MYTHEME_DEFAULT_THEME__=t,window.__MYTHEME_THEME_TOGGLE_ENABLED__=s,window.__MYTHEME_FIXED_THEME__=o,e=t,s?(n=localStorage.getItem(i),a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=n==="light"||n==="dark"?n:a?"dark":"light"):e=o==="dark"?"dark":"light",e!=="light"&&e!=="dark"&&(e=t),document.documentElement.setAttribute("data-theme",e)}catch{document.documentElement.setAttribute("data-theme",'"light"')}})()</script><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;700&amp;family=Libre+Baskerville:wght@400;700&amp;display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.255bf4660b86d5ce0dd58d6766f49b03f599286f6db52e1103a74733876802b4.css integrity="sha256-JVv0ZguG1c4N1Y1nZvSbA/WZKG9ttS4RA6dHM4doArQ=" crossorigin=anonymous><style id=mytheme-custom-properties>:root{--font-display:"Cormorant Garamond", Garamond, "Times New Roman", serif;--font-body:"Libre Baskerville", Baskerville, Georgia, serif;--font-ui:"DM Sans", "Segoe UI", sans-serif;--radius-sm:0.35rem;--radius-md:0.7rem;--container-max:1120px;--content-max:1000px;--body-overlay-opacity:0.35;--body-overlay-linear:linear-gradient(130deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 48%);--body-overlay-radial:radial-gradient(circle at 0% 0%, rgba(123, 45, 38, 0.1), transparent 42%);--color-admonition-note:#4f7ca8;--color-admonition-tip:#3f8a5f;--color-admonition-info:#2f7d99;--color-admonition-warning:#b77b2e;--color-admonition-danger:#a23b3b;--color-bg:#f2ece1;--color-surface:#fbf7f0;--color-surface-strong:#f4ede1;--color-text:#1e1a16;--color-muted:#6b6158;--color-accent:#7b2d26;--color-accent-soft:#bc9a62;--color-border:#d7ccbb;--shadow-soft:0 14px 30px rgba(37, 26, 14, 0.08)}html[data-theme=dark]{--color-bg:#151513;--color-surface:#1d1d1a;--color-surface-strong:#262622;--color-text:#f3ede3;--color-muted:#c2b7a8;--color-accent:#d8926a;--color-accent-soft:#e7bf78;--color-border:#3c3a34;--shadow-soft:0 14px 28px rgba(0, 0, 0, 0.35)}</style></head><body class=is-interior><a class=skip-link href=#main-content data-pagefind-ignore>Skip to main content</a><div class=site-shell><header class=site-header data-pagefind-ignore><div class=site-topbar><div class=brand-lockup><p class=site-kicker>Cybersecurity & Technology</p><a class=site-title href=/>Daniel's Cybersecurity Blog</a></div><div class=header-actions><button class=search-toggle type=button data-search-open aria-expanded=false aria-controls=site-search-root aria-label="Open search" title="Open search">
-<span class=search-toggle__icon aria-hidden=true>&#9906;</span>
-<span class=search-toggle__text>Search</span>
-</button>
-<button class=theme-toggle type=button data-theme-toggle data-label-dark=Dark data-label-light=Light data-aria-dark="Switch to dark mode" data-aria-light="Switch to light mode" aria-label="Switch to dark mode" title="Switch to dark mode">
-<span class=theme-toggle__dot aria-hidden=true></span>
-<span class=theme-toggle__text data-theme-label>Dark</span>
-</button>
-<button class=nav-toggle type=button data-nav-toggle aria-expanded=false aria-controls=primary-navigation aria-label="Toggle navigation">
-<span class=nav-toggle__text>Menu</span>
-<span class=nav-toggle__bars aria-hidden=true><span></span>
-<span></span>
-<span></span></span></button></div></div><nav class=site-nav id=primary-navigation aria-label=Primary><ul class=menu-list><li class="menu-item menu-item--level-0"><a href=/ class=menu-link>Home</a></li><li class="menu-item menu-item--level-0"><a href=/posts/ class="menu-link ancestor" aria-current=true>Posts</a></li><li class="menu-item menu-item--level-0"><a href=/tags/ class=menu-link>Tags</a></li><li class="menu-item menu-item--level-0"><a href=/pages/about/ class=menu-link>About</a></li><li class="menu-item menu-item--level-0"><a href=/archives/ class=menu-link>Archive</a></li></ul></nav></header><main id=main-content class=site-main><nav class="breadcrumbs breadcrumbs--content" aria-label=Breadcrumb data-pagefind-ignore><ol class=breadcrumbs__list style="--breadcrumbs-separator:'\2f '"><li class=breadcrumbs__item><a href=/>Home</a></li><li class=breadcrumbs__item><a href=/posts/>Posts</a></li><li class="breadcrumbs__item is-current" aria-current=page><span>The Discipline of Log Analysis</span></li></ol></nav><article class=article-page><header class="article-page__header article-page__header--news"><p class=eyebrow>Post</p><h1>The Discipline of Log Analysis</h1><p class=article-page__dek>Turning noise into signal during incident response</p><div class=article-page__byline-row><p class=article-page__byline>By
-<span><a class=article-page__byline-link href=/authors/Daniel/>Daniel</a></span></p><p class=article-page__dateline><time datetime=2026-02-14>Published February 14, 2026</time>
-<span>Reading time 3 min read</span></p></div></header><div class=article-page__layout><div class="article-page__body article-page__body--wide-media" data-pagefind-body><p class=pagefind-index-meta>The Discipline of Log Analysis Turning noise into signal during incident response digital forensics incident response operating systems Daniel</p><p>In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data traveled. But logs are also noisy, incomplete, and frequently overwhelming. The ability to analyze them effectively is one of the most valuable skills in cybersecurity.</p><h2 id=the-foundation-know-your-data-sources>The Foundation: Know Your Data Sources</h2><p>Before an incident occurs, a mature security team has already mapped its data sources. Windows Event Logs, Sysmon, Linux auditd, web server access logs, firewall logs, DNS queries, and endpoint detection telemetry each tell part of the story. The analyst&rsquo;s job is to weave these fragments into a coherent narrative.</p><p>Different operating systems produce different log formats and store them in different locations. On Linux, <code>/var/log/</code> is the traditional home for system logs, but modern distributions may also use systemd-journald. On Windows, the Event Log service records application, security, and system events. Understanding these native formats is essential before you can parse, filter, or correlate them.</p><h2 id=baselining-understanding-normal>Baselining: Understanding Normal</h2><p>The single most common mistake in log analysis is looking for malicious activity without first understanding what normal looks like. Every environment has its own rhythms: scheduled backup jobs, automated patching windows, legitimate administrative scripts. Without a baseline, these benign patterns look like threats, while actual attacker behavior blends into the noise.</p><p>Baselining is not a one-time project. It is an ongoing process of observing, documenting, and refining. Start with the high-volume event types. When do they typically occur? Which accounts generate them? What does the payload usually contain? Over time, this contextual knowledge allows you to spot deviations instantly.</p><h2 id=correlation-and-pattern-recognition>Correlation and Pattern Recognition</h2><p>Isolated events are rarely meaningful. A single failed login is probably noise. A series of failed logins followed by a successful one from an unusual location is a different story. This is where correlation becomes critical.</p><p>Time-based correlation is the most intuitive approach: group events that occur close together and look for sequences that match known attack patterns. But correlation can also be geographic (unusual source IP), behavioral (an account accessing resources it never touches), or statistical (a spike in outbound traffic).</p><p>Modern SIEM platforms automate much of this work, but the analyst must still understand the logic behind the alerts. A poorly tuned correlation rule generates false positives that erode trust and waste time. A well-tuned rule surfaces genuine anomalies that demand investigation.</p><h2 id=hunting-for-indicators-of-compromise>Hunting for Indicators of Compromise</h2><p>During active incident response, analysts often work from Indicators of Compromise (IOCs): IP addresses, domain names, file hashes, or command-line strings associated with known malware or threat actors. IOCs are useful but limited. They are static signatures that attackers can easily change.</p><p>More powerful are Indicators of Attack (IOAs): behavioral patterns that reveal intent regardless of the specific tools used. Lateral movement, credential dumping, privilege escalation, and data staging all produce distinctive behavioral signatures. Hunting for IOAs requires deeper log analysis but yields more durable detections.</p><h2 id=tools-of-the-trade>Tools of the Trade</h2><p>While enterprise SIEMs are common, many powerful log analysis tools are freely available:</p><ul><li><strong>jq</strong> for parsing JSON logs at the command line.</li><li><strong>grep, awk, and sed</strong> for rapid filtering and transformation.</li><li><strong>Sigma</strong> for writing generic detection rules portable across SIEM platforms.</li><li><strong>Velociraptor</strong> for endpoint visibility and artifact collection.</li><li><strong>Eric Zimmerman&rsquo;s tools</strong> for Windows forensic artifact parsing.</li></ul><p>The best analysts are comfortable moving between these tools depending on the task at hand. There is no single platform that solves every problem.</p><h2 id=conclusion>Conclusion</h2><p>Log analysis is painstaking work. It demands patience, attention to detail, and a tolerance for ambiguity. But it is also deeply rewarding. In a field where attackers hide in shadows, logs are the light that reveals their movements. Mastering log analysis means mastering the art of detection itself.</p></div></div><section class=article-share aria-label="Share this article"><h2 class=article-share__heading>Share this article</h2><ul class=article-share__list><li><a href="https://x.com/intent/tweet?text=The+Discipline+of+Log+Analysis&amp;url=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><img src=/social/x.svg alt=X></a></li><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><img src=/social/facebook.svg alt=Facebook></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn"><img src=/social/linkedin.svg alt=LinkedIn></a></li><li><a href="https://www.reddit.com/submit?title=The+Discipline+of+Log+Analysis&amp;url=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit"><img src=/social/reddit.svg alt=Reddit></a></li><li><a href="https://api.whatsapp.com/send?text=The+Discipline+of+Log+Analysis+https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><img src=/social/whatsapp.svg alt=WhatsApp></a></li><li><a href="https://t.me/share/url?text=The+Discipline+of+Log+Analysis&amp;url=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on Telegram" title="Share on Telegram"><img src=/social/telegram.svg alt=Telegram></a></li><li><a href="https://pinterest.com/pin/create/button/?description=The+Discipline+of+Log+Analysis&amp;url=https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on Pinterest" title="Share on Pinterest"><img src=/social/pinterest.svg alt=Pinterest></a></li><li><a href="https://bsky.app/intent/compose?text=The+Discipline+of+Log+Analysis+https%3A%2F%2Fexample.org%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target=_blank rel="noopener noreferrer" aria-label="Share on Bluesky" title="Share on Bluesky"><img src=/social/bluesky.svg alt=Bluesky></a></li></ul></section><section class="term-pills term-pills--tags" aria-label=Tags><span class=term-pills__label>Tags</span><ul class=term-pills__list><li><a class="term-pill term-pill--tags" href=/tags/digital-forensics/>Digital Forensics</a></li><li><a class="term-pill term-pill--tags" href=/tags/incident-response/>Incident Response</a></li><li><a class="term-pill term-pill--tags" href=/tags/operating-systems/>Operating Systems</a></li></ul></section><section class=article-related aria-label="Related writing" data-pagefind-ignore><h2 class=article-related__heading>Related writing</h2><div class=article-related__grid><article class=article-related__item><h3><a href=/2026/04/The-Security-Mindset-Thinking-Like-an-Attacker/>The Security Mindset: Thinking Like an Attacker</a></h3><p class=article-related__subtitle>Why the best defenders understand offense</p><p class=article-related__summary>The most effective cybersecurity professionals do not simply memorize firewall rules or vulnerability databases. They cultivate a security...</p><a class=article-related__cta href=/2026/04/The-Security-Mindset-Thinking-Like-an-Attacker/>Read article</a></article><article class=article-related__item><h3><a href=/2026/01/Digital-Forensics-Reconstructing-the-Incident/>Digital Forensics: Reconstructing the Incident</a></h3><p class=article-related__subtitle>From disk images to courtroom testimony</p><p class=article-related__summary>Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked...</p><a class=article-related__cta href=/2026/01/Digital-Forensics-Reconstructing-the-Incident/>Read article</a></article></div></section><nav class=article-pager aria-label="Post navigation"><a class="article-pager__link article-pager__link--prev" href=/2026/01/Digital-Forensics-Reconstructing-the-Incident/><span>Previous</span>
-<strong>Digital Forensics: Reconstructing the Incident</strong>
-</a><a class="article-pager__link article-pager__link--next" href=/2026/03/Securing-the-Cloud-A-Practitioners-Guide/><span>Next</span>
-<strong>Securing the Cloud: A Practitioner's Guide</strong></a></nav></article></main><footer class=site-footer data-pagefind-ignore><div class=site-footer__top><p class=site-footer__title>Daniel's Cybersecurity Blog</p><p class=site-footer__tagline>Insights on cybersecurity, cloud, and digital forensics.</p></div><p class=site-footer__meta>Copyright 2026. All rights reserved.</p></footer></div><button class=back-to-top type=button data-pagefind-ignore data-back-to-top data-show-offset=520 aria-label="Go to top" title="Go to top">
-<span aria-hidden=true>↑</span></button><div class=site-search data-pagefind-ignore data-site-search hidden><button class=site-search__backdrop type=button data-search-close aria-label="Close search"></button><section class=site-search__panel role=dialog aria-modal=true aria-label=Search><header class=site-search__header><h2>Search</h2><button class=site-search__close type=button data-search-close aria-label="Close search">Close search</button></header><div class=site-search__body><p class=site-search__hint>Search by title, subtitle, tags, authors, or body text.</p><div id=site-search-root data-search-root data-placeholder="Search posts" data-no-results="No results found" data-result-label=result data-results-label=results data-load-failed="Search index is not available. Build with Pagefind first." data-loading-label="Loading search..."></div></div></section></div><script src=/js/main.4d6f0e72d16fed5c72013f9986787c8bcf4b8677bf0f23ce594132e26d803f36.js integrity="sha256-TW8OctFv7VxyAT+Zhnh8i89Lhne/DyPOWUEy4m2APzY=" crossorigin=anonymous></script></body></html>
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js" data-theme="light">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=41623&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Discipline of Log Analysis | Daniel&#39;s Cybersecurity Blog</title><link rel="canonical" href="http://localhost:41623/2026/02/The-Discipline-of-Log-Analysis/">
+<meta name="description" content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data...">
+<meta property="og:site_name" content="Daniel&#39;s Cybersecurity Blog">
+<meta property="og:title" content="The Discipline of Log Analysis">
+<meta property="og:description" content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data...">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:41623/2026/02/The-Discipline-of-Log-Analysis/"><meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Computer_code_screen.jpg/1200px-Computer_code_screen.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Discipline of Log Analysis">
+<meta name="twitter:description" content="In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data..."><meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Computer_code_screen.jpg/1200px-Computer_code_screen.jpg"><meta property="article:published_time" content="2026-02-14T00:00:00Z">
+  <meta property="article:modified_time" content="2026-02-14T00:00:00Z"><meta data-pagefind-meta="title" content="The Discipline of Log Analysis"><meta data-pagefind-meta="subtitle" content="Turning noise into signal during incident response"><meta data-pagefind-meta="type" content="posts"><meta data-pagefind-meta="section" content="posts"><meta data-pagefind-meta="tags" content="digital forensics, incident response, operating systems"><meta data-pagefind-meta="authors" content="Daniel">
+<script>
+(function () {
+  try {
+    var storageKey = "\"mytheme-color-scheme\"";
+    var defaultTheme = "\"light\"";
+    var themeToggleEnabled = "true";
+    var fixedThemeWhenToggleOff = "\"light\"";
+    window.__MYTHEME_STORAGE_KEY__ = storageKey;
+    window.__MYTHEME_DEFAULT_THEME__ = defaultTheme;
+    window.__MYTHEME_THEME_TOGGLE_ENABLED__ = themeToggleEnabled;
+    window.__MYTHEME_FIXED_THEME__ = fixedThemeWhenToggleOff;
+    var theme = defaultTheme;
+    if (themeToggleEnabled) {
+      var storedTheme = localStorage.getItem(storageKey);
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : (prefersDark ? "dark" : "light");
+    } else {
+      theme = fixedThemeWhenToggleOff === "dark" ? "dark" : "light";
+    }
+    if (theme !== "light" && theme !== "dark") {
+      theme = defaultTheme;
+    }
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (error) {
+    document.documentElement.setAttribute("data-theme", "\"light\"");
+  }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant&#43;Garamond:wght@400;500;600;700&amp;family=DM&#43;Sans:wght@400;500;700&amp;family=Libre&#43;Baskerville:wght@400;700&amp;display=swap" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="/css/main.css">
+  
+
+  <style id="mytheme-custom-properties">
+    :root {--font-display: "Cormorant Garamond", Garamond, "Times New Roman", serif;--font-body: "Libre Baskerville", Baskerville, Georgia, serif;--font-ui: "DM Sans", "Segoe UI", sans-serif;--radius-sm: 0.35rem;--radius-md: 0.7rem;--container-max: 1120px;--content-max: 1000px;--body-overlay-opacity: 0.35;--body-overlay-linear: linear-gradient(130deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 48%);--body-overlay-radial: radial-gradient(circle at 0% 0%, rgba(123, 45, 38, 0.1), transparent 42%);--color-admonition-note: #4f7ca8;--color-admonition-tip: #3f8a5f;--color-admonition-info: #2f7d99;--color-admonition-warning: #b77b2e;--color-admonition-danger: #a23b3b;--color-bg: #f2ece1;--color-surface: #fbf7f0;--color-surface-strong: #f4ede1;--color-text: #1e1a16;--color-muted: #6b6158;--color-accent: #7b2d26;--color-accent-soft: #bc9a62;--color-border: #d7ccbb;--shadow-soft: 0 14px 30px rgba(37, 26, 14, 0.08);
+    }
+    html[data-theme="dark"] {--color-bg: #151513;--color-surface: #1d1d1a;--color-surface-strong: #262622;--color-text: #f3ede3;--color-muted: #c2b7a8;--color-accent: #d8926a;--color-accent-soft: #e7bf78;--color-border: #3c3a34;--shadow-soft: 0 14px 28px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+
+
+</head>
+<body class="is-interior">
+  <a class="skip-link" href="#main-content" data-pagefind-ignore>Skip to main content</a>
+  <div class="site-shell">
+    <header class="site-header" data-pagefind-ignore>
+  <div class="site-topbar">
+    <div class="brand-lockup">
+      <p class="site-kicker">Cybersecurity &amp; Technology</p>
+      <a class="site-title" href="/">Daniel&#39;s Cybersecurity Blog</a>
+    </div>
+    <div class="header-actions">
+        <button class="search-toggle" type="button" data-search-open aria-expanded="false" aria-controls="site-search-root" aria-label="Open search" title="Open search">
+          <span class="search-toggle__icon" aria-hidden="true">&#9906;</span>
+          <span class="search-toggle__text">Search</span>
+        </button>
+        <button class="theme-toggle" type="button" data-theme-toggle data-label-dark="Dark" data-label-light="Light" data-aria-dark="Switch to dark mode" data-aria-light="Switch to light mode" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <span class="theme-toggle__dot" aria-hidden="true"></span>
+          <span class="theme-toggle__text" data-theme-label>Dark</span>
+        </button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span class="nav-toggle__text">Menu</span>
+        <span class="nav-toggle__bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  
+  <nav class="site-nav" id="primary-navigation" aria-label="Primary">
+    <ul class="menu-list"><li class="menu-item menu-item--level-0">
+      <a href="/" class="menu-link">Home</a></li><li class="menu-item menu-item--level-0">
+      <a href="/posts/" class="menu-link ancestor" aria-current="true">Posts</a></li><li class="menu-item menu-item--level-0">
+      <a href="/tags/" class="menu-link">Tags</a></li><li class="menu-item menu-item--level-0">
+      <a href="/pages/about/" class="menu-link">About</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+    <main id="main-content" class="site-main">
+      <nav class="breadcrumbs breadcrumbs--content" aria-label="Breadcrumb" data-pagefind-ignore>
+    <ol class="breadcrumbs__list" style="--breadcrumbs-separator: '\2f ';">
+      <li class="breadcrumbs__item">
+        <a href="/">Home</a>
+      </li><li class="breadcrumbs__item">
+            <a href="/posts/">Posts</a>
+          </li><li class="breadcrumbs__item is-current" aria-current="page">
+        <span>The Discipline of Log Analysis</span>
+      </li>
+    </ol>
+  </nav>
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+    
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
+  
+  
+  <article class="article-page">
+    
+      <header class="article-page__header article-page__header--news">
+        
+          <p class="eyebrow">Post</p>
+        
+        
+          <h1>The Discipline of Log Analysis</h1>
+        
+
+        
+          <p class="article-page__dek">Turning noise into signal during incident response</p>
+        
+
+        
+          <div class="article-page__byline-row">
+            
+              <p class="article-page__byline">
+                By
+                <span><a class="article-page__byline-link" href="/authors/Daniel/">Daniel</a></span>
+              </p>
+            
+          <p class="article-page__dateline">
+            <time datetime="2026-02-14">Published February 14, 2026</time>
+            
+            <span>Reading time 3 min read</span>
+          </p>
+        </div>
+      
+
+        
+      </header>
+    
+
+    <div class="article-page__layout">
+      
+      <div class="article-page__body article-page__body--wide-media" data-pagefind-body>
+        <p class="pagefind-index-meta">The Discipline of Log Analysis Turning noise into signal during incident response digital forensics incident response operating systems Daniel</p>
+        <p>In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data traveled. But logs are also noisy, incomplete, and frequently overwhelming. The ability to analyze them effectively is one of the most valuable skills in cybersecurity.</p>
+<h2 id="the-foundation-know-your-data-sources">The Foundation: Know Your Data Sources</h2>
+<p>Before an incident occurs, a mature security team has already mapped its data sources. Windows Event Logs, Sysmon, Linux auditd, web server access logs, firewall logs, DNS queries, and endpoint detection telemetry each tell part of the story. The analyst&rsquo;s job is to weave these fragments into a coherent narrative.</p>
+<p>Different operating systems produce different log formats and store them in different locations. On Linux, <code>/var/log/</code> is the traditional home for system logs, but modern distributions may also use systemd-journald. On Windows, the Event Log service records application, security, and system events. Understanding these native formats is essential before you can parse, filter, or correlate them.</p>
+<h2 id="baselining-understanding-normal">Baselining: Understanding Normal</h2>
+<p>The single most common mistake in log analysis is looking for malicious activity without first understanding what normal looks like. Every environment has its own rhythms: scheduled backup jobs, automated patching windows, legitimate administrative scripts. Without a baseline, these benign patterns look like threats, while actual attacker behavior blends into the noise.</p>
+<p>Baselining is not a one-time project. It is an ongoing process of observing, documenting, and refining. Start with the high-volume event types. When do they typically occur? Which accounts generate them? What does the payload usually contain? Over time, this contextual knowledge allows you to spot deviations instantly.</p>
+<h2 id="correlation-and-pattern-recognition">Correlation and Pattern Recognition</h2>
+<p>Isolated events are rarely meaningful. A single failed login is probably noise. A series of failed logins followed by a successful one from an unusual location is a different story. This is where correlation becomes critical.</p>
+<p>Time-based correlation is the most intuitive approach: group events that occur close together and look for sequences that match known attack patterns. But correlation can also be geographic (unusual source IP), behavioral (an account accessing resources it never touches), or statistical (a spike in outbound traffic).</p>
+<p>Modern SIEM platforms automate much of this work, but the analyst must still understand the logic behind the alerts. A poorly tuned correlation rule generates false positives that erode trust and waste time. A well-tuned rule surfaces genuine anomalies that demand investigation.</p>
+<h2 id="hunting-for-indicators-of-compromise">Hunting for Indicators of Compromise</h2>
+<p>During active incident response, analysts often work from Indicators of Compromise (IOCs): IP addresses, domain names, file hashes, or command-line strings associated with known malware or threat actors. IOCs are useful but limited. They are static signatures that attackers can easily change.</p>
+<p>More powerful are Indicators of Attack (IOAs): behavioral patterns that reveal intent regardless of the specific tools used. Lateral movement, credential dumping, privilege escalation, and data staging all produce distinctive behavioral signatures. Hunting for IOAs requires deeper log analysis but yields more durable detections.</p>
+<h2 id="tools-of-the-trade">Tools of the Trade</h2>
+<p>While enterprise SIEMs are common, many powerful log analysis tools are freely available:</p>
+<ul>
+<li><strong>jq</strong> for parsing JSON logs at the command line.</li>
+<li><strong>grep, awk, and sed</strong> for rapid filtering and transformation.</li>
+<li><strong>Sigma</strong> for writing generic detection rules portable across SIEM platforms.</li>
+<li><strong>Velociraptor</strong> for endpoint visibility and artifact collection.</li>
+<li><strong>Eric Zimmerman&rsquo;s tools</strong> for Windows forensic artifact parsing.</li>
+</ul>
+<p>The best analysts are comfortable moving between these tools depending on the task at hand. There is no single platform that solves every problem.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Log analysis is painstaking work. It demands patience, attention to detail, and a tolerance for ambiguity. But it is also deeply rewarding. In a field where attackers hide in shadows, logs are the light that reveals their movements. Mastering log analysis means mastering the art of detection itself.</p>
+
+        
+
+        
+      </div>
+    </div>
+
+    
+      <section class="article-share" aria-label="Share this article">
+    <h2 class="article-share__heading">Share this article</h2>
+    <ul class="article-share__list"><li>
+          <a href="https://x.com/intent/tweet?text=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&amp;url=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X">
+            <img src="/social/x.svg" alt="X">
+          </a>
+        </li><li>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook">
+            <img src="/social/facebook.svg" alt="Facebook">
+          </a>
+        </li><li>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn">
+            <img src="/social/linkedin.svg" alt="LinkedIn">
+          </a>
+        </li><li>
+          <a href="https://www.reddit.com/submit?title=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&amp;url=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit">
+            <img src="/social/reddit.svg" alt="Reddit">
+          </a>
+        </li><li>
+          <a href="https://api.whatsapp.com/send?text=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&#43;http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp">
+            <img src="/social/whatsapp.svg" alt="WhatsApp">
+          </a>
+        </li><li>
+          <a href="https://t.me/share/url?text=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&amp;url=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on Telegram" title="Share on Telegram">
+            <img src="/social/telegram.svg" alt="Telegram">
+          </a>
+        </li><li>
+          <a href="https://pinterest.com/pin/create/button/?description=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&amp;url=http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on Pinterest" title="Share on Pinterest">
+            <img src="/social/pinterest.svg" alt="Pinterest">
+          </a>
+        </li><li>
+          <a href="https://bsky.app/intent/compose?text=The&#43;Discipline&#43;of&#43;Log&#43;Analysis&#43;http%3A%2F%2Flocalhost%3A41623%2F2026%2F02%2FThe-Discipline-of-Log-Analysis%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on Bluesky" title="Share on Bluesky">
+            <img src="/social/bluesky.svg" alt="Bluesky">
+          </a>
+        </li></ul>
+  </section>
+    
+
+    
+      
+
+      
+  <section class="term-pills term-pills--tags" aria-label="Tags">
+    <span class="term-pills__label">Tags</span>
+    <ul class="term-pills__list">
+        <li><a class="term-pill term-pill--tags" href="/tags/digital-forensics/">Digital Forensics</a></li>
+        <li><a class="term-pill term-pill--tags" href="/tags/incident-response/">Incident Response</a></li>
+        <li><a class="term-pill term-pill--tags" href="/tags/operating-systems/">Operating Systems</a></li>
+    </ul>
+  </section>
+
+      <section class="article-related" aria-label="Related writing" data-pagefind-ignore>
+      <h2 class="article-related__heading">Related writing</h2>
+      <div class="article-related__grid"><article class="article-related__item">
+            <h3><a href="/2026/04/The-Containment-Stage-Strategy-Process-and-Standards/">The Containment Stage: Strategy, Process, and Standards</a></h3><p class="article-related__subtitle">How effective containment bridges detection and recovery in incident response</p><p class="article-related__summary">When a security incident is detected, the clock starts ticking. Every second of delay can mean additional compromised systems, exfiltrated data,...</p><a class="article-related__cta" href="/2026/04/The-Containment-Stage-Strategy-Process-and-Standards/">Read article</a>
+          </article><article class="article-related__item">
+            <h3><a href="/2026/04/The-Security-Mindset-Thinking-Like-an-Attacker/">The Security Mindset: Thinking Like an Attacker</a></h3><p class="article-related__subtitle">Why the best defenders understand offense</p><p class="article-related__summary">The most effective cybersecurity professionals do not simply memorize firewall rules or vulnerability databases. They cultivate a security...</p><a class="article-related__cta" href="/2026/04/The-Security-Mindset-Thinking-Like-an-Attacker/">Read article</a>
+          </article><article class="article-related__item">
+            <h3><a href="/2026/01/Digital-Forensics-Reconstructing-the-Incident/">Digital Forensics: Reconstructing the Incident</a></h3><p class="article-related__subtitle">From disk images to courtroom testimony</p><p class="article-related__summary">Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked...</p><a class="article-related__cta" href="/2026/01/Digital-Forensics-Reconstructing-the-Incident/">Read article</a>
+          </article></div>
+    </section>
+      
+    
+
+    
+      
+      
+      
+        <nav class="article-pager" aria-label="Post navigation">
+          
+            <a class="article-pager__link article-pager__link--prev" href="/2026/01/Digital-Forensics-Reconstructing-the-Incident/">
+              <span>Previous</span>
+              <strong>Digital Forensics: Reconstructing the Incident</strong>
+            </a>
+          
+          
+            <a class="article-pager__link article-pager__link--next" href="/2026/03/Securing-the-Cloud-A-Practitioners-Guide/">
+              <span>Next</span>
+              <strong>Securing the Cloud: A Practitioner&#39;s Guide</strong>
+            </a>
+          
+        </nav>
+      
+    
+  </article>
+
+    </main>
+    <footer class="site-footer" data-pagefind-ignore>
+  <div class="site-footer__top">
+    <p class="site-footer__title">Daniel&#39;s Cybersecurity Blog</p>
+    <p class="site-footer__tagline">Insights on cybersecurity, cloud, and digital forensics.</p>
+  </div>
+  <p class="site-footer__meta">Copyright 2026. All rights reserved.</p>
+</footer>
+
+  </div>
+    <button class="back-to-top" type="button" data-pagefind-ignore data-back-to-top data-show-offset="520" aria-label="Go to top" title="Go to top">
+      <span aria-hidden="true">↑</span>
+    </button>
+    <div class="site-search" data-pagefind-ignore data-site-search hidden>
+      <button class="site-search__backdrop" type="button" data-search-close aria-label="Close search"></button>
+      <section class="site-search__panel" role="dialog" aria-modal="true" aria-label="Search">
+        <header class="site-search__header">
+          <h2>Search</h2>
+          <button class="site-search__close" type="button" data-search-close aria-label="Close search">Close search</button>
+        </header>
+        <div class="site-search__body">
+          <p class="site-search__hint">Search by title, subtitle, tags, authors, or body text.</p>
+          <div id="site-search-root" data-search-root data-placeholder="Search posts" data-no-results="No results found" data-result-label="result" data-results-label="results" data-load-failed="Search index is not available. Build with Pagefind first." data-loading-label="Loading search..."></div>
+        </div>
+      </section>
+    </div>
+  
+      <script src="/js/main.js"></script>
+
+</body>
+</html>
+

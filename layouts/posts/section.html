@@ -1,0 +1,42 @@
+{{ define "main" }}
+  {{ $ui := site.Params.ui }}
+  {{ $features := site.Params.features }}
+  {{ $paginationEnabled := ne $features.enablePagination false }}
+  {{ $pageSize := site.Params.paginationSize | default 6 }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $pager := false }}
+  {{ if $paginationEnabled }}
+    {{ $pager = .Paginate $pages $pageSize }}
+    {{ $pages = $pager.Pages }}
+  {{ end }}
+  <section class="section-page">
+    <header class="section-page__header">
+      <p class="eyebrow">{{ $ui.sectionEyebrow | default "Collection" }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}
+        <div class="section-page__intro">{{ . }}</div>
+      {{ end }}
+    </header>
+
+    <ul class="post-list" style="list-style: none; padding: 0; margin: 0;">
+      {{ range $pages }}
+        {{ $dateMachine := .Date | time.Format "2006-01-02" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+        <li class="post-list__item" style="padding: 1.25rem 0; border-bottom: 1px solid var(--color-border);">
+          <p class="post-list__meta" style="margin: 0 0 0.35rem; font-size: 0.85rem; color: var(--color-muted); font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.05em;">
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          </p>
+          <h2 class="post-list__title" style="margin: 0 0 0.25rem; font-size: 1.35rem;">
+            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: var(--color-text);">{{ .LinkTitle }}</a>
+          </h2>
+          {{ with .Params.subtitle }}
+            <p class="post-list__subtitle" style="margin: 0; font-style: italic; color: var(--color-muted);">{{ . }}</p>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ if $paginationEnabled }}
+    {{ partial "pagination.html" (dict "pager" $pager) }}
+  {{ end }}
+{{ end }}

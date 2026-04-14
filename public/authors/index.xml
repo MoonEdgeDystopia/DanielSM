@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authors on Daniel's Cybersecurity Blog</title><link>https://example.org/authors/</link><description>Recent content in Authors on Daniel's Cybersecurity Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/authors/index.xml" rel="self" type="application/rss+xml"/><item><title>Daniel</title><link>https://example.org/authors/Daniel/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://example.org/authors/Daniel/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Daniel&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:41623/authors/</link>
+    <description>Recent content in Authors on Daniel&#39;s Cybersecurity Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:41623/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Daniel</title>
+      <link>http://localhost:41623/authors/Daniel/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/authors/Daniel/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

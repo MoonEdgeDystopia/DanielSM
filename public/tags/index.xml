@@ -1,1 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Daniel's Cybersecurity Blog</title><link>https://example.org/tags/</link><description>Recent content in Tags on Daniel's Cybersecurity Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Cybersecurity</title><link>https://example.org/tags/cybersecurity/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/cybersecurity/</guid><description/></item><item><title>Incident Response</title><link>https://example.org/tags/incident-response/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/incident-response/</guid><description/></item><item><title>Penetration Testing</title><link>https://example.org/tags/penetration-testing/</link><pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/penetration-testing/</guid><description/></item><item><title>Cloud Computing</title><link>https://example.org/tags/cloud-computing/</link><pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/cloud-computing/</guid><description/></item><item><title>Networks</title><link>https://example.org/tags/networks/</link><pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/networks/</guid><description/></item><item><title>Digital Forensics</title><link>https://example.org/tags/digital-forensics/</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/digital-forensics/</guid><description/></item><item><title>Operating Systems</title><link>https://example.org/tags/operating-systems/</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/operating-systems/</guid><description/></item><item><title>Embedded Systems</title><link>https://example.org/tags/embedded-systems/</link><pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate><guid>https://example.org/tags/embedded-systems/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Daniel&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:41623/tags/</link>
+    <description>Recent content in Tags on Daniel&#39;s Cybersecurity Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:41623/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:41623/tags/cybersecurity/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Incident Response</title>
+      <link>http://localhost:41623/tags/incident-response/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/incident-response/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networks</title>
+      <link>http://localhost:41623/tags/networks/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Penetration Testing</title>
+      <link>http://localhost:41623/tags/penetration-testing/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/penetration-testing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud Computing</title>
+      <link>http://localhost:41623/tags/cloud-computing/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/cloud-computing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Digital Forensics</title>
+      <link>http://localhost:41623/tags/digital-forensics/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/digital-forensics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operating Systems</title>
+      <link>http://localhost:41623/tags/operating-systems/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/operating-systems/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedded Systems</title>
+      <link>http://localhost:41623/tags/embedded-systems/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:41623/tags/embedded-systems/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

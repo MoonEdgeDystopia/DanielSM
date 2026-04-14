@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ with .Content }}
+    {{ $ui := site.Params.ui }}
+    {{if $ui.homeEditorHeading }}
+    <section class="editor-note">
+      <h2>{{ $ui.homeEditorHeading | default "From the Editor" }}</h2>
+      <div class="editor-note__body">{{ . }}</div>
+    </section>
+    {{end}}
+  {{ end }}
+{{ end }}
