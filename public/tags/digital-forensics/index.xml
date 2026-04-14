@@ -1,26 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Digital Forensics on Daniel&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:39299/DanielSM/tags/digital-forensics/</link>
-    <description>Recent content in Digital Forensics on Daniel&#39;s Cybersecurity Blog</description>
-    <generator>Hugo</generator>
-    <language>en-US</language>
-    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:39299/DanielSM/tags/digital-forensics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Discipline of Log Analysis</title>
-      <link>http://localhost:39299/DanielSM/2026/02/The-Discipline-of-Log-Analysis/</link>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:39299/DanielSM/2026/02/The-Discipline-of-Log-Analysis/</guid>
-      <description>&lt;p&gt;In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data traveled. But logs are also noisy, incomplete, and frequently overwhelming. The ability to analyze them effectively is one of the most valuable skills in cybersecurity.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-foundation-know-your-data-sources&#34;&gt;The Foundation: Know Your Data Sources&lt;/h2&gt;&#xA;&lt;p&gt;Before an incident occurs, a mature security team has already mapped its data sources. Windows Event Logs, Sysmon, Linux auditd, web server access logs, firewall logs, DNS queries, and endpoint detection telemetry each tell part of the story. The analyst&amp;rsquo;s job is to weave these fragments into a coherent narrative.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Digital Forensics: Reconstructing the Incident</title>
-      <link>http://localhost:39299/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</link>
-      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:39299/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</guid>
-      <description>&lt;p&gt;Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked with a difficult mission: reconstructing what happened, preserving evidence in a legally admissible form, and communicating findings to stakeholders who may have no technical background. It is meticulous work, but it is essential for accountability and improvement.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-four-phases-of-digital-forensics&#34;&gt;The Four Phases of Digital Forensics&lt;/h2&gt;&#xA;&lt;p&gt;While models vary, most forensic investigations follow a similar lifecycle:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Forensics on Daniel's Cybersecurity Blog</title><link>https://moonedgedystopia.github.io/DanielSM/tags/digital-forensics/</link><description>Recent content in Digital Forensics on Daniel's Cybersecurity Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://moonedgedystopia.github.io/DanielSM/tags/digital-forensics/index.xml" rel="self" type="application/rss+xml"/><item><title>The Discipline of Log Analysis</title><link>https://moonedgedystopia.github.io/DanielSM/2026/02/The-Discipline-of-Log-Analysis/</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate><guid>https://moonedgedystopia.github.io/DanielSM/2026/02/The-Discipline-of-Log-Analysis/</guid><description>&lt;p&gt;In the aftermath of a security incident, logs are often the only witness. They record who accessed a system, what commands were executed, which files were touched, and where data traveled. But logs are also noisy, incomplete, and frequently overwhelming. The ability to analyze them effectively is one of the most valuable skills in cybersecurity.&lt;/p&gt;
+&lt;h2 id="the-foundation-know-your-data-sources"&gt;The Foundation: Know Your Data Sources&lt;/h2&gt;
+&lt;p&gt;Before an incident occurs, a mature security team has already mapped its data sources. Windows Event Logs, Sysmon, Linux auditd, web server access logs, firewall logs, DNS queries, and endpoint detection telemetry each tell part of the story. The analyst&amp;rsquo;s job is to weave these fragments into a coherent narrative.&lt;/p&gt;</description></item><item><title>Digital Forensics: Reconstructing the Incident</title><link>https://moonedgedystopia.github.io/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</link><pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate><guid>https://moonedgedystopia.github.io/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</guid><description>&lt;p&gt;Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked with a difficult mission: reconstructing what happened, preserving evidence in a legally admissible form, and communicating findings to stakeholders who may have no technical background. It is meticulous work, but it is essential for accountability and improvement.&lt;/p&gt;
+&lt;h2 id="the-four-phases-of-digital-forensics"&gt;The Four Phases of Digital Forensics&lt;/h2&gt;
+&lt;p&gt;While models vary, most forensic investigations follow a similar lifecycle:&lt;/p&gt;</description></item></channel></rss>

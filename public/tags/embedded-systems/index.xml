@@ -1,19 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Embedded Systems on Daniel&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:39299/DanielSM/tags/embedded-systems/</link>
-    <description>Recent content in Embedded Systems on Daniel&#39;s Cybersecurity Blog</description>
-    <generator>Hugo</generator>
-    <language>en-US</language>
-    <lastBuildDate>Mon, 05 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:39299/DanielSM/tags/embedded-systems/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Digital Forensics: Reconstructing the Incident</title>
-      <link>http://localhost:39299/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</link>
-      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:39299/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</guid>
-      <description>&lt;p&gt;Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked with a difficult mission: reconstructing what happened, preserving evidence in a legally admissible form, and communicating findings to stakeholders who may have no technical background. It is meticulous work, but it is essential for accountability and improvement.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-four-phases-of-digital-forensics&#34;&gt;The Four Phases of Digital Forensics&lt;/h2&gt;&#xA;&lt;p&gt;While models vary, most forensic investigations follow a similar lifecycle:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Embedded Systems on Daniel's Cybersecurity Blog</title><link>https://moonedgedystopia.github.io/DanielSM/tags/embedded-systems/</link><description>Recent content in Embedded Systems on Daniel's Cybersecurity Blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 05 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://moonedgedystopia.github.io/DanielSM/tags/embedded-systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Digital Forensics: Reconstructing the Incident</title><link>https://moonedgedystopia.github.io/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</link><pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate><guid>https://moonedgedystopia.github.io/DanielSM/2026/01/Digital-Forensics-Reconstructing-the-Incident/</guid><description>&lt;p&gt;Digital forensics sits at the intersection of technology, investigation, and law. When a security incident occurs, forensic analysts are tasked with a difficult mission: reconstructing what happened, preserving evidence in a legally admissible form, and communicating findings to stakeholders who may have no technical background. It is meticulous work, but it is essential for accountability and improvement.&lt;/p&gt;
+&lt;h2 id="the-four-phases-of-digital-forensics"&gt;The Four Phases of Digital Forensics&lt;/h2&gt;
+&lt;p&gt;While models vary, most forensic investigations follow a similar lifecycle:&lt;/p&gt;</description></item></channel></rss>
