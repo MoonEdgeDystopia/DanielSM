@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Project</title>
-    <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on My New Hugo Project</description>
+    <title>Tags on Daniel&#39;s Blog</title>
+    <link>http://localhost:40871/tags/</link>
+    <description>Recent content in Tags on Daniel&#39;s Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40871/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lifestyle</title>
+      <link>http://localhost:40871/tags/Lifestyle/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Lifestyle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mindfulness</title>
+      <link>http://localhost:40871/tags/Mindfulness/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Mindfulness/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Philosophy</title>
+      <link>http://localhost:40871/tags/Philosophy/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Philosophy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Japan</title>
+      <link>http://localhost:40871/tags/Japan/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Japan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Photography</title>
+      <link>http://localhost:40871/tags/Photography/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Photography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Travel</title>
+      <link>http://localhost:40871/tags/Travel/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Travel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Creativity</title>
+      <link>http://localhost:40871/tags/Creativity/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Creativity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Habits</title>
+      <link>http://localhost:40871/tags/Habits/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Habits/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing</title>
+      <link>http://localhost:40871/tags/Writing/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Writing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Astronomy</title>
+      <link>http://localhost:40871/tags/Astronomy/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Astronomy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Science</title>
+      <link>http://localhost:40871/tags/Science/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/tags/Science/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

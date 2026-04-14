@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Science on Daniel&#39;s Blog</title>
+    <link>http://localhost:40871/categories/Science/</link>
+    <description>Recent content in Science on Daniel&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 05 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40871/categories/Science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cosmic Perspectives</title>
+      <link>http://localhost:40871/2026/01/Cosmic-Perspectives/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/01/Cosmic-Perspectives/</guid>
+      <description>&lt;p&gt;The Hubble Ultra Deep Field is one of the most humbling images ever captured by humanity. A tiny patch of sky, no larger than a grain of sand held at arm&amp;rsquo;s length, containing thousands of galaxies. Each galaxy holds hundreds of billions of stars. Around many of those stars, planets orbit in silent darkness. And somewhere, perhaps, life looks up and wonders, just as we do.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-scale-of-the-universe&#34;&gt;The Scale of the Universe&lt;/h2&gt;&#xA;&lt;p&gt;It is difficult — perhaps impossible — to truly comprehend the scale of the cosmos. We can recite the numbers: the observable universe is about 93 billion light-years across. A light-year is roughly 9.5 trillion kilometers. Our galaxy, the Milky Way, contains between 100 and 400 billion stars. And there are an estimated two trillion galaxies in the observable universe alone.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

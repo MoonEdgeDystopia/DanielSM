@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Project</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on My New Hugo Project</description>
+    <title>Home on Daniel&#39;s Blog</title>
+    <link>http://localhost:40871/</link>
+    <description>Recent content in Home on Daniel&#39;s Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40871/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Art of Stillness</title>
+      <link>http://localhost:40871/2026/04/The-Art-of-Stillness/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/04/The-Art-of-Stillness/</guid>
+      <description>&lt;p&gt;In a world that moves faster every day, stillness has become a radical act. We are bombarded by notifications, deadlines, and an endless stream of information that demands our attention. Yet, some of the most profound insights come not in moments of frenzy, but in silence.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-noise-of-modern-life&#34;&gt;The Noise of Modern Life&lt;/h2&gt;&#xA;&lt;p&gt;We wear our busyness like a badge of honor. &amp;ldquo;How are you?&amp;rdquo; &amp;ldquo;Busy.&amp;rdquo; It is the default response, as if constant motion were the only proof of a life well-lived. But busyness is not the same as purpose, and noise is not the same as substance.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wanderlust in Kyoto</title>
+      <link>http://localhost:40871/2026/03/Wanderlust-in-Kyoto/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/03/Wanderlust-in-Kyoto/</guid>
+      <description>&lt;p&gt;There are places that leave an imprint on your soul, and Kyoto is one of them. Walking through its narrow streets in autumn, when the maples burn red and gold against the grey stone of ancient temples, feels like stepping into a living painting.&lt;/p&gt;&#xA;&lt;h2 id=&#34;arrival-in-the-old-capital&#34;&gt;Arrival in the Old Capital&lt;/h2&gt;&#xA;&lt;p&gt;I arrived in Kyoto on a crisp November morning, when the air smelled of roasted chestnuts and wood smoke. Unlike the neon intensity of Tokyo, Kyoto moves at a different pace. Here, time seems to fold in on itself — modern life coexisting with traditions that stretch back over a thousand years.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>On Writing Daily</title>
+      <link>http://localhost:40871/2026/02/On-Writing-Daily/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/02/On-Writing-Daily/</guid>
+      <description>&lt;p&gt;About a year ago, I made a simple promise to myself: write at least three hundred words every day. It did not matter what — a journal entry, a blog post, a half-baked poem, or even a rant about the weather. The only rule was consistency.&lt;/p&gt;&#xA;&lt;p&gt;At first, it felt like a chore. I would stare at the blank page, fingers hovering over the keyboard, wondering if I had anything worth saying. Some days, the words came easily. Other days, every sentence felt like pulling teeth. But I kept showing up. And slowly, almost imperceptibly, something changed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cosmic Perspectives</title>
+      <link>http://localhost:40871/2026/01/Cosmic-Perspectives/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/01/Cosmic-Perspectives/</guid>
+      <description>&lt;p&gt;The Hubble Ultra Deep Field is one of the most humbling images ever captured by humanity. A tiny patch of sky, no larger than a grain of sand held at arm&amp;rsquo;s length, containing thousands of galaxies. Each galaxy holds hundreds of billions of stars. Around many of those stars, planets orbit in silent darkness. And somewhere, perhaps, life looks up and wonders, just as we do.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-scale-of-the-universe&#34;&gt;The Scale of the Universe&lt;/h2&gt;&#xA;&lt;p&gt;It is difficult — perhaps impossible — to truly comprehend the scale of the cosmos. We can recite the numbers: the observable universe is about 93 billion light-years across. A light-year is roughly 9.5 trillion kilometers. Our galaxy, the Milky Way, contains between 100 and 400 billion stars. And there are an estimated two trillion galaxies in the observable universe alone.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

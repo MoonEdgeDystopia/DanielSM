@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Habits on Daniel&#39;s Blog</title>
+    <link>http://localhost:40871/tags/Habits/</link>
+    <description>Recent content in Habits on Daniel&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 14 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40871/tags/Habits/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Writing Daily</title>
+      <link>http://localhost:40871/2026/02/On-Writing-Daily/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/2026/02/On-Writing-Daily/</guid>
+      <description>&lt;p&gt;About a year ago, I made a simple promise to myself: write at least three hundred words every day. It did not matter what — a journal entry, a blog post, a half-baked poem, or even a rant about the weather. The only rule was consistency.&lt;/p&gt;&#xA;&lt;p&gt;At first, it felt like a chore. I would stare at the blank page, fingers hovering over the keyboard, wondering if I had anything worth saying. Some days, the words came easily. Other days, every sentence felt like pulling teeth. But I kept showing up. And slowly, almost imperceptibly, something changed.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

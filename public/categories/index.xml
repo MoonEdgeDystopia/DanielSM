@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on My New Hugo Project</title>
-    <link>http://localhost:1313/categories/</link>
-    <description>Recent content in Categories on My New Hugo Project</description>
+    <title>Categories on Daniel&#39;s Blog</title>
+    <link>http://localhost:40871/categories/</link>
+    <description>Recent content in Categories on Daniel&#39;s Blog</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:40871/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Essays</title>
+      <link>http://localhost:40871/categories/Essays/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/categories/Essays/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Personal</title>
+      <link>http://localhost:40871/categories/Personal/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/categories/Personal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Travel</title>
+      <link>http://localhost:40871/categories/Travel/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/categories/Travel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Writing</title>
+      <link>http://localhost:40871/categories/Writing/</link>
+      <pubDate>Sat, 14 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/categories/Writing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Science</title>
+      <link>http://localhost:40871/categories/Science/</link>
+      <pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:40871/categories/Science/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
